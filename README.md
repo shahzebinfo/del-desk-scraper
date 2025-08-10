@@ -1,6 +1,13 @@
-# Project X - Google Sheets API
+# My Project Name
 
-## Setup
-1. Clone this repository.
-2. Run `npm install`.
-3. Create a `.env` file:
+Ye ek web app hai jo Google Sheets ke data ko display karta hai.
+
+## Features
+- User login system
+- Google Sheets integration
+- Responsive design
+
+## Installation
+1. Repo clone karo
+2. `npm install` chalao
+3. `npm start` chalao

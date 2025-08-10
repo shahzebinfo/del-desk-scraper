@@ -3,9 +3,21 @@ import chrome from "selenium-webdriver/chrome.js";
 
 export async function scrapeData() {
   const options = new chrome.Options();
-  options.addArguments("--headless", "--no-sandbox", "--disable-dev-shm-usage");
+  options.addArguments(
+    '--headless=new',            // latest headless mode
+    '--no-sandbox',
+    '--disable-dev-shm-usage',
+    '--disable-gpu',
+    '--window-size=1920,1080'
+  );
 
-  let driver = await new Builder().forBrowser("chrome").setChromeOptions(options).build();
+  // Chrome binary path set karo (Railway/Docker ke liye)
+  options.setChromeBinaryPath(process.env.CHROME_BIN || '/usr/bin/chromium');
+
+  let driver = await new Builder()
+    .forBrowser("chrome")
+    .setChromeOptions(options)
+    .build();
 
   try {
     await driver.get("https://del-desk.excitel.in/tickets/advancedSearch/1?listData=%7B%22sortBy%22:%7B%7D,%22currentPage%22:1,%22timestamp%22:1754761622480%7D");
